@@ -1,0 +1,33 @@
+<!--
+	O template apresentado neste fonte trabalha em conjunto 
+	com o layout do express (ver arquivo layout.ejs) para 
+	construção dinâmica da página html. 
+
+	A função contentFor indica o local em que o conteúdo 
+	específoco será substituído no layout. Neste exemplo, 
+	usamos os identificadores secao1 e secao2 definidos
+	em layout.ejs.
+-->
+<%- contentFor('secao1') %>
+<!--
+	Nos scripts abaixo, trabalha-se com o conteúdo dos 
+	arrays lineSec1 e lineSec2 da estrutura DadosCV, 
+	passada como parâmetro para a função de renderização 
+	em server.js na rota 'cv'
+-->
+<div class="jumbotron text-center">
+		<h1> Seção 1 do <%= userName %></h1> 
+		<% for (var i=0; i<linesSec1.length; i++) {%>
+		<p> <%= linesSec1[i] %> </p>
+		<% } %>
+</div>
+
+<%- contentFor('secao2') %>
+<div class="jumbotron text-center">
+		<h1> Seção 2 </h1> 
+		<ul>
+		<% for (var i=0; i<linesSec2.length; i++) {%>
+		<li> <%= linesSec2[i] %> </li>
+		<% } %>
+		</ul>
+</div>

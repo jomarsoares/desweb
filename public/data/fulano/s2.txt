@@ -1,0 +1,2 @@
+O que está em s2.txt do Fulano
+mais uma linha em s2.txt

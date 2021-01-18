@@ -1,0 +1,46 @@
+<!-- 
+  Neste código temos o layout comum que será usado para 
+  renderizar todas as páginas da aplicação. 
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Utilizando o EJS</title>
+    <!--
+      Embora a recomendação seja não usar ferramentas de produtividade nas 
+      nossas práticas, neste exemplo está sendo usada uma formatação predefinida
+      do CSS pelo bootstrap. Neste caso, os formatos predefinidos são utilizados
+      para a formatação da barra de navegação. 
+      A aplicação do CSS é dependente dos atributos das tags (ver atributos class 
+      no código html) 
+    -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-inverse">
+      <ul class="nav navbar-nav">
+        <li><a href="/">Escolher</a></li>
+        <li><a href="/config">Config</a></li>
+        <li><a href="/contato">Contato</a></li>
+      </ul>
+     </nav>
+  </header>  
+ 
+   <main>
+    <!--
+      As marcações do EJS abaixo e seus respectivos identificaçõres
+      (secao1 e secao2) serão usados pelos templates ejs
+      (ver cv2.ejs, contrato.ejs, etc. em views) de forma
+      a substituir a marcação por conteúdo específico.  
+    -->
+     <div class="container">
+      <%- secao1 %>
+      <%- secao2 %>
+     </div>
+   </main>
+
+</body>
+</html>  

@@ -1,0 +1,37 @@
+<!--
+  
+	O template apresentado neste fonte trabalha em conjunto 
+	com o layout do express (ver arquivo layout.ejs) para 
+	construção dinâmica da página html. 
+
+	A função contentFor indica o local em que o conteúdo 
+	específoco será substituído no layout. Neste exemplo, 
+	usamos os identificadores secao1 e secao2 definidos
+	em layout.ejs.
+
+  Este código funciona para apresentação do formulário que 
+  permite a escolha de um dos nomes cadastrados para, em 
+  seguida, listar os CVs particulares.
+
+-->
+
+<%- contentFor('secao1') %>
+
+<h1> Nick do CV que você quer abrir </h1>
+
+<%- contentFor('secao2') %>
+
+<form action="/cv" method="GET">
+  <div>
+    <label for="name">Nome*</label>
+    <div>
+        <select name="name" id="name">
+          <% for(i=0; i<disponiveisCV.length; i++) {%>
+            <% var selected = lastCv == disponiveisCV[i] ? 'selected' : ''; %>
+            <option value="<%= disponiveisCV[i] %>" <%= selected %>><%= disponiveisCV[i] %></option>
+          <% } %>          
+        </select>
+    </div>
+    <input type="submit" value="Abrir CV" onclick>
+  </div>
+</form> 
